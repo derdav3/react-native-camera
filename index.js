@@ -116,7 +116,7 @@ export default class Camera extends Component {
     aspect: CameraManager.Aspect.fill,
     type: CameraManager.Type.back,
     orientation: CameraManager.Orientation.auto,
-    captureAudio: true,
+    captureAudio: false,
     captureMode: CameraManager.CaptureMode.still,
     captureTarget: CameraManager.CaptureTarget.cameraRoll,
     captureQuality: CameraManager.CaptureQuality.high,
@@ -130,7 +130,7 @@ export default class Camera extends Component {
 
   static checkDeviceAuthorizationStatus = CameraManager.checkDeviceAuthorizationStatus;
   static checkVideoAuthorizationStatus = CameraManager.checkVideoAuthorizationStatus;
-  static checkAudioAuthorizationStatus = CameraManager.checkAudioAuthorizationStatus;
+  /*static checkAudioAuthorizationStatus = CameraManager.checkAudioAuthorizationStatus;*/
 
   setNativeProps(props) {
     this.refs[CAMERA_REF].setNativeProps(props);
@@ -205,7 +205,7 @@ export default class Camera extends Component {
   capture(options) {
     const props = convertNativeProps(this.props);
     options = {
-      audio: props.captureAudio,
+      audio: false,
       barCodeTypes: props.barCodeTypes,
       mode: props.captureMode,
       playSoundOnCapture: props.playSoundOnCapture,
